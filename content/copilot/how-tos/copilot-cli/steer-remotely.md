@@ -62,7 +62,7 @@ If you always want your interactive CLI sessions to be remotely accessible, add 
 
 ```json copy
 {
-  "steerableSessions": true
+  "remoteSessions": true
 }
 ```
 
