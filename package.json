@@ -226,8 +226,8 @@
     "js-cookie": "^3.0.5",
     "js-yaml": "^4.1.1",
     "liquidjs": "^10.25.0",
-    "lodash": "^4.17.23",
-    "lodash-es": "^4.17.23",
+    "lodash": "^4.18.0",
+    "lodash-es": "^4.18.0",
     "lowdb": "7.0.1",
     "lowlight": "^3.3.0",
     "markdownlint-rule-helpers": "^0.25.0",
@@ -350,6 +350,8 @@
   },
   "overrides": {
     "esbuild": "^0.25",
+    "vite": "^7.3.2",
+    "path-to-regexp": "^8.4.0",
     "apache-arrow": "file:src/search/vendor/apache-arrow-stub"
   },
   "optionalDependencies": {
