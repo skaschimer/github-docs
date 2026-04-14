@@ -192,6 +192,9 @@ For a complete list of available slash commands enter `/help` in the CLI's inter
 
 For a complete list of commands and options, run `copilot help`.
 
+> [!NOTE]
+> The `--remote` and `--no-remote` options require the remote sessions feature to be available on your account.
+
 ## Tool availability values
 
 The `--available-tools` and `--excluded-tools` options support the following values for specifying tools:
