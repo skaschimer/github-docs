@@ -2445,6 +2445,18 @@
       "requestPath": "/repos/{owner}/{repo}/dependency-graph/sbom"
     },
     {
+      "slug": "fetch-a-software-bill-of-materials-sbom-for-a-repository",
+      "subcategory": "sboms",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/dependency-graph/sbom/fetch-report/{sbom_uuid}"
+    },
+    {
+      "slug": "request-generation-of-a-software-bill-of-materials-sbom-for-a-repository",
+      "subcategory": "sboms",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/dependency-graph/sbom/generate-report"
+    },
+    {
       "slug": "create-a-snapshot-of-dependencies-for-a-repository",
       "subcategory": "dependency-submission",
       "verb": "post",

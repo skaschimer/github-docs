@@ -7236,6 +7236,28 @@
       },
       {
         "category": "dependency-graph",
+        "slug": "fetch-a-software-bill-of-materials-sbom-for-a-repository",
+        "subcategory": "sboms",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/dependency-graph/sbom/fetch-report/{sbom_uuid}",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "dependency-graph",
+        "slug": "request-generation-of-a-software-bill-of-materials-sbom-for-a-repository",
+        "subcategory": "sboms",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/dependency-graph/sbom/generate-report",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "dependency-graph",
         "slug": "create-a-snapshot-of-dependencies-for-a-repository",
         "subcategory": "dependency-submission",
         "verb": "post",
