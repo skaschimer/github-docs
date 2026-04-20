@@ -11,6 +11,7 @@ import {
 } from '@/automated-pipelines/components/AutomatedPageContext'
 import { Changelog } from '@/graphql/components/Changelog'
 import { ChangelogItemT } from '@/graphql/components/types'
+import { stripParagraphWrappers } from '@/graphql/pages/changelog'
 
 type Props = {
   mainContext: MainContextT
@@ -20,7 +21,7 @@ type Props = {
   currentYear: number
 }
 
-export default function GraphqlChangelog({
+export default function GraphqlChangelogYear({
   mainContext,
   schema,
   automatedPageContext,
@@ -45,10 +46,14 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
   const req = context.req as unknown as ExtendedRequest
   const res = context.res as unknown as ServerResponse
   const currentVersion = context.query.versionId as string
+  const year = Number(context.query.year)
+
   const years = getGraphqlChangelogYears(currentVersion)
-  const currentYear = years[0]
-  const schema = getGraphqlChangelogByYear(currentVersion, currentYear) as ChangelogItemT[]
-  if (!schema) throw new Error('No graphql free-pro-team changelog schema found.')
+  if (!years.includes(year)) {
+    return { notFound: true }
+  }
+
+  const schema = getGraphqlChangelogByYear(currentVersion, year) as ChangelogItemT[]
 
   const automatedPageContext = getAutomatedPageContextFromRequest(req)
   const titles = schema.map((item) => `Schema changes for ${item.date}`)
@@ -63,24 +68,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
       automatedPageContext,
       schema,
       years,
-      currentYear,
+      currentYear: year,
     },
-  }
-}
-
-/**
- * Strip wrapping `<p>` tags from HTML change descriptions to allow
- * rendering as `<li>` content without nested block elements.
- */
-export function stripParagraphWrappers(schema: ChangelogItemT[]) {
-  for (const item of schema) {
-    for (const group of [item.schemaChanges, item.previewChanges, item.upcomingChanges]) {
-      for (const change of group) {
-        change.changes = change.changes.map((html) => {
-          if (html.startsWith('<p>') && html.endsWith('</p>')) return html.slice(3, -4)
-          return html
-        })
-      }
-    }
   }
 }
