@@ -1,8 +1,7 @@
 ---
-title: Customizing the development environment for GitHub Copilot cloud agent
+title: Configure the development environment
 shortTitle: Customize the agent environment
-allowTitleToDifferFromFilename: true
-intro: 'Learn how to customize {% data variables.product.prodname_copilot %}''s development environment with additional tools.'
+intro: 'Pre-install tools and dependencies so {% data variables.copilot.copilot_cloud_agent %} can build, test, and validate changes reliably.'
 versions:
   feature: copilot
 redirect_from:
@@ -12,6 +11,7 @@ redirect_from:
   - /copilot/how-tos/agents/copilot-coding-agent/customizing-the-development-environment-for-copilot-coding-agent
   - /copilot/how-tos/agents/copilot-coding-agent/customize-the-agent-environment
   - /copilot/how-tos/agents/coding-agent/customize-the-agent-environment
+  - /copilot/how-tos/use-copilot-agents/cloud-agent/customize-the-agent-environment
 contentType: how-tos
 category:
   - Configure Copilot
@@ -174,7 +174,7 @@ We recommend that you only use {% data variables.copilot.copilot_cloud_agent %} 
 
 By default, {% data variables.product.prodname_copilot_short %} uses an Ubuntu Linux-based development environment.
 
-You may want to use a Windows development environment if you're building software for Windows or your repository uses a Windows-based toolchain so {% data variables.product.prodname_copilot_short %} can build your project, run tests and validate its work.
+You may want to use a Windows development environment if you're building software for Windows or your repository uses a Windows-based toolchain, so {% data variables.product.prodname_copilot_short %} can build your project, run tests, and validate its work.
 
 {% data variables.copilot.copilot_cloud_agent %}'s integrated firewall is not compatible with Windows, so we recommend that you only use self-hosted runners or larger {% data variables.product.prodname_dotcom %}-hosted runners with Azure private networking where you can implement your own network controls. For more information on runners with Azure private networking, see [AUTOTITLE](/admin/configuring-settings/configuring-private-networking-for-hosted-compute-products/about-azure-private-networking-for-github-hosted-runners-in-your-enterprise).
 
@@ -204,7 +204,7 @@ jobs:
 
 You may want to set environment variables in {% data variables.product.prodname_copilot_short %}'s environment to configure or authenticate tools or dependencies that it has access to.
 
-To set an environment variable for {% data variables.product.prodname_copilot_short %}, create a {% data variables.product.prodname_actions %} variable or secret in the `copilot` environment. If the value contains sensitive information, for example a password or API key, it's best to use a {% data variables.product.prodname_actions %} secret.
+You may want to set an environment variable for {% data variables.product.prodname_copilot_short %}, create a {% data variables.product.prodname_actions %} variable or secret in the `copilot` environment. If the value contains sensitive information, for example a password or API key, it's best to use a {% data variables.product.prodname_actions %} secret.
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
