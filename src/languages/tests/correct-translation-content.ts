@@ -7,6 +7,7 @@ function fix(content: string, code: string, englishContent = '') {
   return correctTranslatedContentStrings(content, englishContent, {
     code,
     relativePath: 'test.md',
+    skipOrphanStripping: true,
   })
 }
 
@@ -781,11 +782,13 @@ describe('correctTranslatedContentStrings', () => {
 
     test('removes orphaned endif when no matching ifversion/elsif opener exists', () => {
       // Caused by translations where only the closing tag survived (e.g. user-api.md reusable)
-      expect(fix('Some content\n{% endif %}\nMore content', 'fr')).toBe(
+      const fixWithStrip = (s: string) =>
+        correctTranslatedContentStrings(s, '', { code: 'fr', relativePath: 'test.md' })
+      expect(fixWithStrip('Some content\n{% endif %}\nMore content')).toBe(
         'Some content\n\nMore content',
       )
-      expect(fix('Line one\n{%- endif %}\nLine two', 'fr')).toBe('Line one\n\nLine two')
-      expect(fix('Text {%- endif -%} more', 'fr')).toBe('Text  more')
+      expect(fixWithStrip('Line one\n{%- endif %}\nLine two')).toBe('Line one\n\nLine two')
+      expect(fixWithStrip('Text {%- endif -%} more')).toBe('Text  more')
     })
 
     test('preserves endif when matching ifversion opener is present', () => {
@@ -1463,6 +1466,33 @@ describe('correctTranslatedContentStrings', () => {
       expect(fix('{{%else %}', 'es')).toBe('{% else %}')
       expect(fix('{{%raw %}', 'es')).toBe('{% raw %}')
       expect(fix('{{% raw %}', 'es')).toBe('{% raw %}')
+    })
+
+    test('rejoins broken bullet markers split across lines (all languages)', () => {
+      // Lone `*` with content on indented next line → `* content`
+      const broken = '* \n              [AUTOTITLE](/orgs/transfer)'
+      const expected = '* [AUTOTITLE](/orgs/transfer)'
+      for (const lang of ['ja', 'de', 'es', 'fr', 'ko', 'pt', 'ru', 'zh']) {
+        expect(fix(broken, lang)).toBe(expected)
+      }
+      // No trailing space variant
+      expect(fix('*\n  [AUTOTITLE](/path)', 'ko')).toBe('* [AUTOTITLE](/path)')
+      // Multiple consecutive broken bullets
+      expect(fix('* \n  one\n* \n  two', 'fr')).toBe('* one\n* two')
+      // Valid bullets are not modified
+      expect(fix('* normal\n* another', 'de')).toBe('* normal\n* another')
+    })
+
+    test('rejoins broken table cells split across lines (all languages)', () => {
+      const broken = '|\n              **クラウドとサーバー**             | 説明'
+      const expected = '| **クラウドとサーバー**             | 説明'
+      for (const lang of ['ja', 'de', 'es', 'fr', 'ko', 'pt', 'ru', 'zh']) {
+        expect(fix(broken, lang)).toBe(expected)
+      }
+      // Pipe with trailing whitespace
+      expect(fix('|   \n  cell text', 'zh')).toBe('| cell text')
+      // Valid table rows are not modified
+      expect(fix('| a | b |\n| c | d |', 'es')).toBe('| a | b |\n| c | d |')
     })
   })
 
