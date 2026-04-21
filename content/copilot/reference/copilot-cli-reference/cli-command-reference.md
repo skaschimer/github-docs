@@ -181,6 +181,7 @@ For a complete list of available slash commands enter `/help` in the CLI's inter
 | `--banner`, `--no-banner`          | Show or hide the startup banner. |
 | `--bash-env`                       | Enable `BASH_ENV` support for bash shells. |
 | `--config-dir=PATH`         | Set the configuration directory (default: `~/.copilot`). |
+| `--connect[=SESSION-ID]`           | Connect directly to a remote session (optionally specify a session ID or task ID). Conflicts with `--resume` and `--continue`. |
 | `--continue`                       | Resume the most recent session. |
 | `--deny-tool=TOOL ...`             | Tools the CLI does not have permission to use. Will not prompt for permission. For multiple tools, use a quoted, comma-separated list. |
 | `--deny-url=URL ...`               | Deny access to specific URLs or domains, takes precedence over `--allow-url`. For multiple URLs, use a quoted, comma-separated list. |
@@ -198,7 +199,7 @@ For a complete list of available slash commands enter `/help` in the CLI's inter
 | `--log-level=LEVEL`                | Set the log level (choices: `none`, `error`, `warning`, `info`, `debug`, `all`, `default`). |
 | `--max-autopilot-continues=COUNT`  | Maximum number of continuation messages in autopilot mode (default: unlimited). See [AUTOTITLE](/copilot/concepts/agents/copilot-cli/autopilot). |
 | `--mode=MODE`                      | Set the initial agent mode (choices: `interactive`, `plan`, `autopilot`). Cannot be combined with `--autopilot` or `--plan`. |
-| `--model=MODEL`                    | Set the AI model you want to use. |
+| `--model=MODEL`                    | Set the AI model you want to use. Pass `auto` to let {% data variables.product.prodname_copilot_short %} pick the best available model automatically. |
 | `--mouse[=VALUE]`                  | Enable mouse support in alt screen mode. VALUE can be `on` (default) or `off`. When enabled, the CLI captures mouse events in alt screen mode—scroll wheel, clicks, etc. When disabled, the terminal's native mouse behavior is preserved. Once set the setting is persisted by being written to your configuration file.|
 | `--no-ask-user`                    | Disable the `ask_user` tool (the agent works autonomously without asking questions). |
 | `--no-auto-update`                 | Disable downloading CLI updates automatically. |
@@ -214,7 +215,7 @@ For a complete list of available slash commands enter `/help` in the CLI's inter
 | `--plain-diff`                     | Disable rich diff rendering (syntax highlighting via the diff tool specified by your git config). |
 | `--plugin-dir=DIRECTORY`           | Load a plugin from a local directory (can be used multiple times). |
 | `--remote`                         | Enable remote access to this session from {% data variables.product.prodname_dotcom_the_website %} and {% data variables.product.prodname_mobile %}. See [AUTOTITLE](/copilot/how-tos/copilot-cli/steer-remotely). |
-| `--resume=SESSION-ID`              | Resume a previous interactive session by choosing from a list (optionally specify a session ID). |
+| `--resume=SESSION-ID`              | Resume a previous interactive session by choosing from a list (optionally specify a session ID or unique prefix of 7+ hex characters). |
 | `-s`, `--silent`                   | Output only the agent response (without usage statistics), useful for scripting with `-p`. |
 | `--screen-reader`                  | Enable screen reader optimizations. |
 | `--secret-env-vars=VAR ...`        | Redact an environment variable from shell and MCP server environments (can be used multiple times). For multiple variables, use a quoted, comma-separated list. The values in the `GITHUB_TOKEN` and `COPILOT_GITHUB_TOKEN` environment variables are redacted from output by default. |
@@ -227,7 +228,7 @@ For a complete list of available slash commands enter `/help` in the CLI's inter
 For a complete list of commands and options, run `copilot help`.
 
 > [!NOTE]
-> The `--remote` and `--no-remote` options require the remote sessions feature to be available on your account.
+> The `--remote`, `--no-remote`, and `--connect` options require the remote sessions feature to be available on your account.
 
 ## Tool availability values
 
@@ -256,7 +257,7 @@ The `--available-tools` and `--excluded-tools` options support these values:
 
 | Tool name | Description |
 |---|---|
-| `task` | Run sub-agents |
+| `task` | Run subagents |
 | `read_agent` | Check background agent status |
 | `list_agents` | List available agents |
 
@@ -333,7 +334,7 @@ Settings cascade from user to repository to local, with more specific scopes ove
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
-| `allowed_urls` | `string[]` | `[]` | URLs or domains allowed without prompting. |
+| `allowedUrls` | `string[]` | `[]` | URLs or domains allowed without prompting. |
 | `autoUpdate` | `boolean` | `true` | Automatically download CLI updates. |
 | `banner` | `"always"` \| `"once"` \| `"never"` | `"once"` | Animated banner display frequency. |
 | `bashEnv` | `boolean` | `false` | Enable `BASH_ENV` support for bash shells. |
@@ -345,7 +346,7 @@ Settings cascade from user to repository to local, with more specific scopes ove
 | `includeCoAuthoredBy` | `boolean` | `true` | Add a `Co-authored-by` trailer to git commits made by the agent. |
 | `companyAnnouncements` | `string[]` | `[]` | Custom messages shown randomly on startup. |
 | `logLevel` | `"none"` \| `"error"` \| `"warning"` \| `"info"` \| `"debug"` \| `"all"` \| `"default"` | `"default"` | Logging verbosity. |
-| `model` | `string` | varies | AI model to use (see the `/model` command). |
+| `model` | `string` | varies | AI model to use (see the `/model` command). Set to `"auto"` to let {% data variables.product.prodname_copilot_short %} pick the best available model automatically. |
 | `powershellFlags` | `string[]` | `["-NoProfile", "-NoLogo"]` | Flags passed to PowerShell (`pwsh`) on startup. Windows only. |
 | `effortLevel` | `string` | `"medium"` | Reasoning effort level for extended thinking (e.g., `"low"`, `"medium"`, `"high"`, `"xhigh"`). Higher levels use more compute. |
 | `mergeStrategy` | `"rebase"` \| `"merge"` | — | Conflict resolution strategy for `/pr fix conflicts`. When set to `"rebase"`, conflicts are resolved by rebasing onto the base branch. When set to `"merge"`, the base branch is merged into the feature branch. If not configured, a picker dialog is shown. |
@@ -355,7 +356,6 @@ Settings cascade from user to repository to local, with more specific scopes ove
 | `storeTokenPlaintext` | `boolean` | `false` | Store authentication tokens in plain text in the configuration file when no system keychain is available. |
 | `streamerMode` | `boolean` | `false` | Hide preview model names and quota details (useful when demonstrating {% data variables.copilot.copilot_cli_short %}). |
 | `theme` | `"auto"` \| `"dark"` \| `"light"` | `"auto"` | Terminal color theme. |
-| `trusted_folders` | `string[]` | `[]` | Folders with pre-granted file access. |
 | `mouse` | `boolean` | `true` | Enable mouse support in alt screen mode. |
 | `respectGitignore` | `boolean` | `true` | Exclude gitignored files from the `@` file picker. |
 | `disableAllHooks` | `boolean` | `false` | Disable all hooks. |
@@ -860,7 +860,7 @@ The `notification` hook fires asynchronously when the CLI emits a system notific
 |------|---------------|
 | `shell_completed` | A background (async) shell command finishes |
 | `shell_detached_completed` | A detached shell session completes |
-| `agent_completed` | A background sub-agent finishes (completed or failed) |
+| `agent_completed` | A background subagent finishes (completed or failed) |
 | `agent_idle` | A background agent finishes a turn and enters idle state (waiting for `write_agent`) |
 | `permission_prompt` | The agent requests permission to execute a tool |
 | `elicitation_dialog` | The agent requests additional information from the user |
@@ -1000,6 +1000,27 @@ MCP servers are loaded from multiple sources, each with a different trust level.
 
 All MCP tool invocations require explicit permission. This applies even to read-only operations on external services.
 
+### Enterprise MCP allowlist
+
+{% data variables.product.prodname_enterprise %} organizations can enforce an allowlist of permitted MCP servers. When active, the CLI evaluates each non-default server against the enterprise policy before connecting.
+
+When a {% data variables.product.prodname_enterprise %} registry policy is detected (or the `MCP_ENTERPRISE_ALLOWLIST` experimental feature flag is enabled), the CLI:
+
+1. Computes a fingerprint for each configured non-default server based on its command, arguments, and remote URL.
+1. Sends the fingerprints to the enterprise allowlist evaluate endpoint.
+1. Allows only servers whose fingerprints are approved; all others are blocked with a message naming the enterprise.
+
+This check is fail-closed: if the evaluate endpoint is unreachable or returns an error, non-default servers are blocked until the policy can be verified.
+
+When a server is blocked by an enterprise allowlist, the CLI displays:
+
+```text
+MCP server "SERVER-NAME" was blocked by your enterprise "ENTERPRISE-NAME".
+Contact your enterprise administrator to add this server to the allowlist.
+```
+
+Built-in default servers are always exempt from allowlist enforcement.
+
 ### Migrating from `.vscode/mcp.json`
 
 If your project uses `.vscode/mcp.json` (VS Code's MCP configuration format), migrate to `.mcp.json` for {% data variables.copilot.copilot_cli %}. The migration remaps the `servers` key to `mcpServers`.
@@ -1077,7 +1098,7 @@ Custom agents are specialized AI agents defined in Markdown files. The filename 
 | `description` | string | Yes | Description shown in the agent list and `task` tool. |
 | `infer` | boolean | No | Allow auto-delegation by the main agent. Default: `true`. |
 | `mcp-servers` | object | No | MCP servers to connect. Uses the same schema as `~/.copilot/mcp-config.json`. |
-| `model` | string | No | AI model for this agent. When unset, inherits the outer agent's model. |
+| `model` | string | No | AI model for this agent. When unset, inherits the outer agent's model. When the session model is set to `Auto` (server-selected), subagents always inherit the resolved session model regardless of this field. |
 | `name` | string | No | Display name. Defaults to the filename. |
 | `tools` | string[] | No | Tools available to the agent. Default: `["*"]` (all tools). |
 
