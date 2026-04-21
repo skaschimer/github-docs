@@ -25,6 +25,7 @@ children:
   - /use-copilot-cli-agents
   - /administer-copilot-cli-for-your-enterprise
   - /speed-up-task-completion
+  - /manage-pull-requests
   - /roll-back-changes
   - /chronicle
   - /content/copilot/concepts/agents/copilot-cli/about-copilot-cli
