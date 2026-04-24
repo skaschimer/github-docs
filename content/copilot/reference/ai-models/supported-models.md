@@ -47,7 +47,7 @@ This table lists the AI models available in {% data variables.product.prodname_c
 
 ## Supported AI models in {% data variables.copilot.copilot_auto_model_selection_short_cap_a %}
 
-This table lists the AI models available in {% data variables.copilot.copilot_auto_model_selection_short_cap_a %}.
+This table lists the supported AI models for {% data variables.copilot.copilot_auto_model_selection_short_cap_a %}. Available models may be limited by model policies, including policies restricting {% data variables.product.prodname_copilot_short %} to data-resident or FedRAMP-compliant models.
 
 {% rowheaders %}
 
