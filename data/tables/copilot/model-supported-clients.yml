@@ -185,6 +185,15 @@
   xcode: false
   jetbrains: false
 
+- name: GPT-5.5
+  dotcom: true
+  cli: true
+  vscode: true
+  vs: true
+  eclipse: true
+  xcode: true
+  jetbrains: true
+
 - name: Grok Code Fast 1
   dotcom: true
   cli: false
