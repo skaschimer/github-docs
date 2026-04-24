@@ -97196,6 +97196,13 @@
           "href": "/graphql/reference/scalars#string"
         },
         {
+          "name": "id",
+          "description": "<p>The ID of an existing single select option. Include this to preserve the\noption's identity during updates, preventing item field values from being cleared.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
           "name": "name",
           "description": "<p>The name of the option.</p>",
           "type": "String!",
