@@ -23,7 +23,7 @@ The `~/.copilot` directory contains the following top-level items.
 
 | Path | Type | Description |
 |------|------|-------------|
-| `config.json` | File | Your personal configuration settings |
+| `settings.json` | File | Your personal configuration settings |
 | `copilot-instructions.md` | File | Personal custom instructions (applied to all sessions) |
 | `instructions/` | Directory | Additional personal `*.instructions.md` files |
 | `mcp-config.json` | File | User-level MCP server definitions |
@@ -46,9 +46,12 @@ The `~/.copilot` directory contains the following top-level items.
 
 The following files are designed to be edited by you directly, or managed through CLI commands.
 
-### `config.json`
+### `settings.json`
 
 This is the primary configuration file for {% data variables.copilot.copilot_cli_short %}. You can edit it directly in a text editor, or use interactive commands like `/model` and `/theme` to change specific values from within a session. The file supports JSON with comments (JSONC).
+
+> [!NOTE]
+> The configuration file was renamed from `config.json` to `settings.json`. Existing settings are automatically migrated from `~/.copilot/config.json` on startup.
 
 For the full list of settings and how they interact with repository-level configuration, see [Configuration file settings](#configuration-file-settings) later in this article.
 
@@ -91,7 +94,7 @@ For more information, see [AUTOTITLE](/copilot/how-tos/copilot-cli/customize-cop
 
 ### `hooks/`
 
-Store user-level hook scripts here. These hooks apply to all your sessions. You can also define hooks inline in `config.json` using the `hooks` key. Repository-level hooks (in `.github/hooks/`) are loaded alongside user-level hooks.
+Store user-level hook scripts here. These hooks apply to all your sessions. You can also define hooks inline in your user configuration file (`~/.copilot/config.json`) using the `hooks` key. Repository-level hooks (in `.github/hooks/`) are loaded alongside user-level hooks.
 
 For more information, see [AUTOTITLE](/copilot/how-tos/copilot-cli/customize-copilot/use-hooks).
 
@@ -168,17 +171,17 @@ The `--config-dir` option takes precedence over `COPILOT_HOME`, which in turn ta
 
 | Item | Safe to delete? | Effect |
 |------|-----------------|--------|
+| `agents/`, `skills/`, `hooks/` | Not recommended | You will lose your personal customizations. Back up first. |
+| `copilot-instructions.md`, `instructions/` | Not recommended | You will lose your personal custom instructions. Back up first. |
+| `installed-plugins/` | Not recommended | Use `copilot plugin uninstall` instead, to ensure plugin metadata in `settings.json` stays consistent. |
 | `logs/` | Yes | Log files are re-created each session. Deleting them has no functional impact. |
+| `lsp-config.json` | Not recommended | You will lose your user-level LSP server definitions. Back up first. |
+| `mcp-config.json` | Not recommended | You will lose your user-level MCP server definitions. Back up first. |
+| `permissions-config.json` | With caution | Resets all saved permissions. The CLI will prompt you again for tool and directory approvals. |
 | `plugin-data/` | Yes | Plugin persistent data is re-created as needed. |
 | `session-state/` | With caution | Deleting removes session history. You will no longer be able to resume past sessions. |
 | `session-store.db` | With caution | Deleting removes cross-session data. The file is re-created automatically. |
-| `config.json` | With caution | Resets all configuration to defaults. You will need to reconfigure your preferences and re-authenticate. |
-| `permissions-config.json` | With caution | Resets all saved permissions. The CLI will prompt you again for tool and directory approvals. |
-| `installed-plugins/` | Not recommended | Use `copilot plugin uninstall` instead, to ensure plugin metadata in `config.json` stays consistent. |
-| `mcp-config.json` | Not recommended | You will lose your user-level MCP server definitions. Back up first. |
-| `lsp-config.json` | Not recommended | You will lose your user-level LSP server definitions. Back up first. |
-| `copilot-instructions.md`, `instructions/` | Not recommended | You will lose your personal custom instructions. Back up first. |
-| `agents/`, `skills/`, `hooks/` | Not recommended | You will lose your personal customizations. Back up first. |
+| `settings.json` | With caution | Resets all configuration to defaults. You will need to reconfigure your preferences and re-authenticate. |
 
 ## Configuration file settings
 
@@ -186,11 +189,11 @@ Settings cascade from user to repository to local, with more specific scopes ove
 
 | Scope | Location | Purpose |
 |-------|----------|---------|
-| User | `~/.copilot/config.json` | Global defaults for all repositories. Use the `COPILOT_HOME` environment variable to specify an alternative path. |
+| User | `~/.copilot/settings.json` | Global defaults for all repositories. Use the `COPILOT_HOME` environment variable to specify an alternative path. |
 | Repository | `.github/copilot/settings.json` | Shared repository configuration (committed to the repository). |
 | Local | `.github/copilot/settings.local.json` | Personal overrides (add this to `.gitignore`). |
 
-### User settings (`~/.copilot/config.json`)
+### User settings (`~/.copilot/settings.json`)
 
 These settings apply across all your sessions and repositories. You can edit this file directly, or use slash commands to update individual values.
 
