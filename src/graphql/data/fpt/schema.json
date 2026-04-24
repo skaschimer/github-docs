@@ -69169,6 +69169,11 @@
           "name": "Subscribable",
           "id": "subscribable",
           "href": "/graphql/reference/interfaces#subscribable"
+        },
+        {
+          "name": "TeamReviewRequestable",
+          "id": "teamreviewrequestable",
+          "href": "/graphql/reference/interfaces#teamreviewrequestable"
         }
       ],
       "fields": [
@@ -80332,6 +80337,35 @@
           "type": "URI",
           "id": "uri",
           "href": "/graphql/reference/scalars#uri"
+        }
+      ]
+    },
+    {
+      "name": "TeamReviewRequestable",
+      "id": "teamreviewrequestable",
+      "href": "/graphql/reference/interfaces#teamreviewrequestable",
+      "description": "<p>Represents a team that can be requested to review a pull request.</p>",
+      "fields": [
+        {
+          "name": "id",
+          "description": "<p>The Node ID of the TeamReviewRequestable object.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/scalars#id"
+        },
+        {
+          "name": "name",
+          "description": "<p>The name of the team.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "slug",
+          "description": "<p>A unique, human-readable identifier for the team.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/scalars#string"
         }
       ]
     },
