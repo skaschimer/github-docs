@@ -2,6 +2,20 @@
 
 **21 April 2026**
 
+We reorganized the Copilot how-tos for GitHub.com into a new [Copilot on GitHub](https://docs.github.com/en/copilot/how-tos/copilot-on-github) category, structured around five task-based map topics that follow the way people actually use Copilot on GitHub:
+
+* [Set up Copilot](https://docs.github.com/en/copilot/how-tos/copilot-on-github/set-up-copilot): Enable Copilot, configure AI models, and set up code review.
+* [Chat with Copilot](https://docs.github.com/en/copilot/how-tos/copilot-on-github/chat-with-copilot): A streamlined [quickstart](https://docs.github.com/en/copilot/how-tos/copilot-on-github/chat-with-copilot/get-started-with-chat) with example prompts, plus focused articles for chat on GitHub and chat on GitHub Mobile.
+* [Customize Copilot](https://docs.github.com/en/copilot/how-tos/copilot-on-github/customize-copilot): Add custom instructions, customize coding agents (MCP, hooks, skills, firewall), and curate context with Spaces and content exclusions. A new [quickstart](https://docs.github.com/en/copilot/how-tos/copilot-on-github/customize-copilot/customize-copilot-overview) walks through a scenario that ties these features together.
+* [Copilot for GitHub tasks](https://docs.github.com/en/copilot/how-tos/copilot-on-github/copilot-for-github-tasks): Create issues, generate PR summaries, and use the GitHub MCP server from the web UI.
+* [Use Copilot agents](https://docs.github.com/en/copilot/how-tos/copilot-on-github/use-copilot-agents) — Six articles following the agent workflow end-to-end: kick off a task, research and iterate, monitor sessions, request code review, and review output. Includes a new [hands-on quickstart](https://docs.github.com/en/copilot/how-tos/copilot-on-github/use-copilot-agents/overview) you can complete in about ten minutes.
+
+Every article was revised for plain language, scannable structure, and value-focused intros. Web-specific content was separated from IDE and CLI content so you see only what's relevant to GitHub.com.
+
+<hr>
+
+**21 April 2026**
+
 We recently published two new guides for organizations adopting Copilot cloud agent.
 
 * Pre-enablement: [Building guardrails for GitHub Copilot cloud agent](https://docs.github.com/en/enterprise-cloud@latest/copilot/tutorials/cloud-agent/build-guardrails) helps you expand built-in protections to create a secure environment for agents to operate in.
