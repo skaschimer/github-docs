@@ -188,6 +188,16 @@
                               "TEAM",
                               "ROLE"
                             ]
+                          },
+                          {
+                            "type": "string",
+                            "name": "mode",
+                            "description": "<p>The bypass mode for the reviewer</p>",
+                            "enum": [
+                              "ALWAYS",
+                              "EXEMPT"
+                            ],
+                            "default": "ALWAYS"
                           }
                         ]
                       }

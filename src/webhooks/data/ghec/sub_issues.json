@@ -1690,12 +1690,6 @@
               },
               {
                 "type": "boolean",
-                "name": "has_commit_comments",
-                "description": "<p>Whether commit comments are enabled.</p>",
-                "default": true
-              },
-              {
-                "type": "boolean",
                 "name": "archived",
                 "description": "<p>Whether the repository is archived.</p>",
                 "isRequired": true,
@@ -3161,12 +3155,6 @@
               "all",
               "collaborators_only"
             ]
-          },
-          {
-            "type": "boolean",
-            "name": "has_commit_comments",
-            "description": "<p>Whether commit comments are enabled.</p>",
-            "default": true
           },
           {
             "type": "boolean",
@@ -5021,12 +5009,6 @@
                   "all",
                   "collaborators_only"
                 ]
-              },
-              {
-                "type": "boolean",
-                "name": "has_commit_comments",
-                "description": "<p>Whether commit comments are enabled.</p>",
-                "default": true
               },
               {
                 "type": "boolean",
@@ -7579,12 +7561,6 @@
               },
               {
                 "type": "boolean",
-                "name": "has_commit_comments",
-                "description": "<p>Whether commit comments are enabled.</p>",
-                "default": true
-              },
-              {
-                "type": "boolean",
                 "name": "archived",
                 "description": "<p>Whether the repository is archived.</p>",
                 "isRequired": true,
@@ -9050,12 +9026,6 @@
               "all",
               "collaborators_only"
             ]
-          },
-          {
-            "type": "boolean",
-            "name": "has_commit_comments",
-            "description": "<p>Whether commit comments are enabled.</p>",
-            "default": true
           },
           {
             "type": "boolean",
@@ -10910,12 +10880,6 @@
                   "all",
                   "collaborators_only"
                 ]
-              },
-              {
-                "type": "boolean",
-                "name": "has_commit_comments",
-                "description": "<p>Whether commit comments are enabled.</p>",
-                "default": true
               },
               {
                 "type": "boolean",
@@ -13468,12 +13432,6 @@
               },
               {
                 "type": "boolean",
-                "name": "has_commit_comments",
-                "description": "<p>Whether commit comments are enabled.</p>",
-                "default": true
-              },
-              {
-                "type": "boolean",
                 "name": "archived",
                 "description": "<p>Whether the repository is archived.</p>",
                 "isRequired": true,
@@ -14939,12 +14897,6 @@
               "all",
               "collaborators_only"
             ]
-          },
-          {
-            "type": "boolean",
-            "name": "has_commit_comments",
-            "description": "<p>Whether commit comments are enabled.</p>",
-            "default": true
           },
           {
             "type": "boolean",
@@ -16799,12 +16751,6 @@
                   "all",
                   "collaborators_only"
                 ]
-              },
-              {
-                "type": "boolean",
-                "name": "has_commit_comments",
-                "description": "<p>Whether commit comments are enabled.</p>",
-                "default": true
               },
               {
                 "type": "boolean",
@@ -19357,12 +19303,6 @@
               },
               {
                 "type": "boolean",
-                "name": "has_commit_comments",
-                "description": "<p>Whether commit comments are enabled.</p>",
-                "default": true
-              },
-              {
-                "type": "boolean",
                 "name": "archived",
                 "description": "<p>Whether the repository is archived.</p>",
                 "isRequired": true,
@@ -20828,12 +20768,6 @@
               "all",
               "collaborators_only"
             ]
-          },
-          {
-            "type": "boolean",
-            "name": "has_commit_comments",
-            "description": "<p>Whether commit comments are enabled.</p>",
-            "default": true
           },
           {
             "type": "boolean",
@@ -22688,12 +22622,6 @@
                   "all",
                   "collaborators_only"
                 ]
-              },
-              {
-                "type": "boolean",
-                "name": "has_commit_comments",
-                "description": "<p>Whether commit comments are enabled.</p>",
-                "default": true
               },
               {
                 "type": "boolean",

@@ -17767,12 +17767,6 @@
               },
               {
                 "type": "boolean",
-                "name": "has_commit_comments",
-                "description": "<p>Whether commit comments are enabled.</p>",
-                "default": true
-              },
-              {
-                "type": "boolean",
                 "name": "has_downloads",
                 "description": "<p>Whether downloads are enabled.</p>",
                 "isRequired": true,
@@ -26314,12 +26308,6 @@
                   "all",
                   "collaborators_only"
                 ]
-              },
-              {
-                "type": "boolean",
-                "name": "has_commit_comments",
-                "description": "<p>Whether commit comments are enabled.</p>",
-                "default": true
               },
               {
                 "type": "string or null",
