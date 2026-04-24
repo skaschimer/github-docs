@@ -1362,11 +1362,6 @@
                   },
                   {
                     "type": "boolean",
-                    "name": "has_commit_comments",
-                    "description": ""
-                  },
-                  {
-                    "type": "boolean",
                     "name": "archived",
                     "description": ""
                   },
@@ -1735,6 +1730,16 @@
                                   "TEAM",
                                   "ROLE"
                                 ]
+                              },
+                              {
+                                "type": "string",
+                                "name": "mode",
+                                "description": "<p>The bypass mode for the reviewer</p>",
+                                "enum": [
+                                  "ALWAYS",
+                                  "EXEMPT"
+                                ],
+                                "default": "ALWAYS"
                               }
                             ]
                           }
@@ -3514,11 +3519,6 @@
                   },
                   {
                     "type": "boolean",
-                    "name": "has_commit_comments",
-                    "description": ""
-                  },
-                  {
-                    "type": "boolean",
                     "name": "archived",
                     "description": ""
                   },
@@ -3887,6 +3887,16 @@
                                   "TEAM",
                                   "ROLE"
                                 ]
+                              },
+                              {
+                                "type": "string",
+                                "name": "mode",
+                                "description": "<p>The bypass mode for the reviewer</p>",
+                                "enum": [
+                                  "ALWAYS",
+                                  "EXEMPT"
+                                ],
+                                "default": "ALWAYS"
                               }
                             ]
                           }
@@ -5667,11 +5677,6 @@
                   },
                   {
                     "type": "boolean",
-                    "name": "has_commit_comments",
-                    "description": ""
-                  },
-                  {
-                    "type": "boolean",
                     "name": "archived",
                     "description": ""
                   },
@@ -6040,6 +6045,16 @@
                                   "TEAM",
                                   "ROLE"
                                 ]
+                              },
+                              {
+                                "type": "string",
+                                "name": "mode",
+                                "description": "<p>The bypass mode for the reviewer</p>",
+                                "enum": [
+                                  "ALWAYS",
+                                  "EXEMPT"
+                                ],
+                                "default": "ALWAYS"
                               }
                             ]
                           }
@@ -7831,11 +7846,6 @@
                   },
                   {
                     "type": "boolean",
-                    "name": "has_commit_comments",
-                    "description": ""
-                  },
-                  {
-                    "type": "boolean",
                     "name": "archived",
                     "description": ""
                   },
@@ -8204,6 +8214,16 @@
                                   "TEAM",
                                   "ROLE"
                                 ]
+                              },
+                              {
+                                "type": "string",
+                                "name": "mode",
+                                "description": "<p>The bypass mode for the reviewer</p>",
+                                "enum": [
+                                  "ALWAYS",
+                                  "EXEMPT"
+                                ],
+                                "default": "ALWAYS"
                               }
                             ]
                           }

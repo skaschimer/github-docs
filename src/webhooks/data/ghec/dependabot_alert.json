@@ -85,6 +85,7 @@
                   "unknown",
                   "direct",
                   "transitive",
+                  "inconclusive",
                   null
                 ]
               }
@@ -190,6 +191,15 @@
                   "medium",
                   "high",
                   "critical"
+                ]
+              },
+              {
+                "type": "string",
+                "name": "classification",
+                "description": "<p>The classification of the advisory.</p>",
+                "enum": [
+                  "general",
+                  "malware"
                 ]
               },
               {
@@ -923,6 +933,7 @@
                   "unknown",
                   "direct",
                   "transitive",
+                  "inconclusive",
                   null
                 ]
               }
@@ -1028,6 +1039,15 @@
                   "medium",
                   "high",
                   "critical"
+                ]
+              },
+              {
+                "type": "string",
+                "name": "classification",
+                "description": "<p>The classification of the advisory.</p>",
+                "enum": [
+                  "general",
+                  "malware"
                 ]
               },
               {
@@ -1761,6 +1781,7 @@
                   "unknown",
                   "direct",
                   "transitive",
+                  "inconclusive",
                   null
                 ]
               }
@@ -1866,6 +1887,15 @@
                   "medium",
                   "high",
                   "critical"
+                ]
+              },
+              {
+                "type": "string",
+                "name": "classification",
+                "description": "<p>The classification of the advisory.</p>",
+                "enum": [
+                  "general",
+                  "malware"
                 ]
               },
               {
@@ -2599,6 +2629,7 @@
                   "unknown",
                   "direct",
                   "transitive",
+                  "inconclusive",
                   null
                 ]
               }
@@ -2704,6 +2735,15 @@
                   "medium",
                   "high",
                   "critical"
+                ]
+              },
+              {
+                "type": "string",
+                "name": "classification",
+                "description": "<p>The classification of the advisory.</p>",
+                "enum": [
+                  "general",
+                  "malware"
                 ]
               },
               {
@@ -3437,6 +3477,7 @@
                   "unknown",
                   "direct",
                   "transitive",
+                  "inconclusive",
                   null
                 ]
               }
@@ -3542,6 +3583,15 @@
                   "medium",
                   "high",
                   "critical"
+                ]
+              },
+              {
+                "type": "string",
+                "name": "classification",
+                "description": "<p>The classification of the advisory.</p>",
+                "enum": [
+                  "general",
+                  "malware"
                 ]
               },
               {
@@ -4275,6 +4325,7 @@
                   "unknown",
                   "direct",
                   "transitive",
+                  "inconclusive",
                   null
                 ]
               }
@@ -4380,6 +4431,15 @@
                   "medium",
                   "high",
                   "critical"
+                ]
+              },
+              {
+                "type": "string",
+                "name": "classification",
+                "description": "<p>The classification of the advisory.</p>",
+                "enum": [
+                  "general",
+                  "malware"
                 ]
               },
               {
@@ -5113,6 +5173,7 @@
                   "unknown",
                   "direct",
                   "transitive",
+                  "inconclusive",
                   null
                 ]
               }
@@ -5218,6 +5279,15 @@
                   "medium",
                   "high",
                   "critical"
+                ]
+              },
+              {
+                "type": "string",
+                "name": "classification",
+                "description": "<p>The classification of the advisory.</p>",
+                "enum": [
+                  "general",
+                  "malware"
                 ]
               },
               {
@@ -5951,6 +6021,7 @@
                   "unknown",
                   "direct",
                   "transitive",
+                  "inconclusive",
                   null
                 ]
               }
@@ -6056,6 +6127,15 @@
                   "medium",
                   "high",
                   "critical"
+                ]
+              },
+              {
+                "type": "string",
+                "name": "classification",
+                "description": "<p>The classification of the advisory.</p>",
+                "enum": [
+                  "general",
+                  "malware"
                 ]
               },
               {

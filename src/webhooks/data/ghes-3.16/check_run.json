@@ -1362,11 +1362,6 @@
                   },
                   {
                     "type": "boolean",
-                    "name": "has_commit_comments",
-                    "description": ""
-                  },
-                  {
-                    "type": "boolean",
                     "name": "archived",
                     "description": ""
                   },
@@ -3396,11 +3391,6 @@
                       "all",
                       "collaborators_only"
                     ]
-                  },
-                  {
-                    "type": "boolean",
-                    "name": "has_commit_comments",
-                    "description": ""
                   },
                   {
                     "type": "boolean",
@@ -5434,11 +5424,6 @@
                       "all",
                       "collaborators_only"
                     ]
-                  },
-                  {
-                    "type": "boolean",
-                    "name": "has_commit_comments",
-                    "description": ""
                   },
                   {
                     "type": "boolean",
@@ -7483,11 +7468,6 @@
                       "all",
                       "collaborators_only"
                     ]
-                  },
-                  {
-                    "type": "boolean",
-                    "name": "has_commit_comments",
-                    "description": ""
                   },
                   {
                     "type": "boolean",
