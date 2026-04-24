@@ -322,67 +322,7 @@ copilot --allow-tool='MyMCP'
 
 ## Configuration file settings
 
-Settings cascade from user to repository to local, with more specific scopes overriding more general ones. Command-line flags and environment variables always take the highest precedence.
-
-| Scope | Location | Purpose |
-|-------|----------|---------|
-| User | `~/.copilot/config.json` | Global defaults for all repositories. Use the `COPILOT_HOME` environment variable to specify an alternative path. |
-| Repository | `.github/copilot/settings.json` | Shared repository configuration (committed to the repository). |
-| Local | `.github/copilot/settings.local.json` | Personal overrides (add this to `.gitignore`). |
-
-### User settings (`~/.copilot/config.json`)
-
-| Key | Type | Default | Description |
-|-----|------|---------|-------------|
-| `allowedUrls` | `string[]` | `[]` | URLs or domains allowed without prompting. |
-| `autoUpdate` | `boolean` | `true` | Automatically download CLI updates. |
-| `banner` | `"always"` \| `"once"` \| `"never"` | `"once"` | Animated banner display frequency. |
-| `bashEnv` | `boolean` | `false` | Enable `BASH_ENV` support for bash shells. |
-| `beep` | `boolean` | `true` | Play an audible beep when attention is required. |
-| `compactPaste` | `boolean` | `true` | Collapse large pastes into compact tokens. |
-| `custom_agents.default_local_only` | `boolean` | `false` | Only use local custom agents. |
-| `denied_urls` | `string[]` | `[]` | URLs or domains blocked (takes precedence over `allowed_urls`). |
-| `experimental` | `boolean` | `false` | Enable experimental features. |
-| `includeCoAuthoredBy` | `boolean` | `true` | Add a `Co-authored-by` trailer to git commits made by the agent. |
-| `companyAnnouncements` | `string[]` | `[]` | Custom messages shown randomly on startup. |
-| `logLevel` | `"none"` \| `"error"` \| `"warning"` \| `"info"` \| `"debug"` \| `"all"` \| `"default"` | `"default"` | Logging verbosity. |
-| `model` | `string` | varies | AI model to use (see the `/model` command). Set to `"auto"` to let {% data variables.product.prodname_copilot_short %} pick the best available model automatically. |
-| `powershellFlags` | `string[]` | `["-NoProfile", "-NoLogo"]` | Flags passed to PowerShell (`pwsh`) on startup. Windows only. |
-| `effortLevel` | `string` | `"medium"` | Reasoning effort level for extended thinking (e.g., `"low"`, `"medium"`, `"high"`, `"xhigh"`). Higher levels use more compute. |
-| `mergeStrategy` | `"rebase"` \| `"merge"` | — | Conflict resolution strategy for `/pr fix conflicts`. When set to `"rebase"`, conflicts are resolved by rebasing onto the base branch. When set to `"merge"`, the base branch is merged into the feature branch. If not configured, a picker dialog is shown. |
-| `renderMarkdown` | `boolean` | `true` | Render Markdown in terminal output. |
-| `screenReader` | `boolean` | `false` | Enable screen reader optimizations. |
-| `stream` | `boolean` | `true` | Enable streaming responses. |
-| `storeTokenPlaintext` | `boolean` | `false` | Store authentication tokens in plain text in the configuration file when no system keychain is available. |
-| `streamerMode` | `boolean` | `false` | Hide preview model names and quota details (useful when demonstrating {% data variables.copilot.copilot_cli_short %}). |
-| `theme` | `"auto"` \| `"dark"` \| `"light"` | `"auto"` | Terminal color theme. |
-| `mouse` | `boolean` | `true` | Enable mouse support in alt screen mode. |
-| `respectGitignore` | `boolean` | `true` | Exclude gitignored files from the `@` file picker. |
-| `disableAllHooks` | `boolean` | `false` | Disable all hooks. |
-| `hooks` | `object` | — | Inline user-level hook definitions. |
-| `copyOnSelect` | `boolean` | `true` (macOS), `false` (other) | Automatically copy mouse-selected text to the system clipboard in alt screen mode. |
-| `statusLine` | `object` | — | Custom status line display. `type`: must be `"command"`. `command`: path to a script that receives session JSON on stdin and prints status content to stdout. `padding`: optional left-padding spaces. |
-| `suppress_init_folders` | `string[]` | `[]` | Folders where the `/init` suggestion has been dismissed. Managed automatically by `/init suppress`. |
-| `updateTerminalTitle` | `boolean` | `true` | Show the current intent in the terminal title. |
-
-### Repository settings (`.github/copilot/settings.json`)
-
-Repository settings apply to everyone who works in the repository. Only the keys listed in the following table are supported at the repository level. Any other keys—including keys that are valid in the user configuration file—are silently ignored.
-
-| Key | Type | Merge behavior | Description |
-|-----|------|---------------|-------------|
-| `companyAnnouncements` | `string[]` | Replaced—repository takes precedence | Messages shown randomly on startup. |
-| `disableAllHooks` | `boolean` | Repository takes precedence | Disable all hooks. |
-| `enabledPlugins` | `Record<string, boolean>` | Merged—repository overrides user for same key | Declarative plugin auto-install. |
-| `extraKnownMarketplaces` | `Record<string, {...}>` | Merged—repository overrides user for same key | Plugin marketplaces available in this repository. |
-| `hooks` | `object` | Concatenated—repository hooks run after user hooks | Hook definitions scoped to this repository. See [Hooks reference](#hooks-reference). |
-| `mergeStrategy` | `"rebase"` \| `"merge"` | Repository takes precedence | Conflict resolution strategy for `/pr fix conflicts`. |
-
-### Local settings (`.github/copilot/settings.local.json`)
-
-Create `.github/copilot/settings.local.json` in the repository, for personal overrides that should not be committed. Add this file to `.gitignore`.
-
-The local configuration file uses the same schema as the repository configuration file (`.github/copilot/settings.json`) and takes precedence over it.
+For detailed information about configuration file settings—including the full list of user settings, repository settings, local settings, and how they cascade—see [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-config-dir-reference#configuration-file-settings).
 
 ## Project initialization for {% data variables.product.prodname_copilot_short %}
 
@@ -402,7 +342,7 @@ The CLI looks for the `copilot-instructions.md` file on startup, and if it's mis
 
 > 💡 No copilot instructions found. Run /init to generate a copilot-instructions.md file for this project.
 
-If you don't want to create this file, you can permanently hide this startup message by using the `/init suppress` slash command, which adds a `suppress_init_folders` setting for this repository to your {% data variables.product.prodname_copilot_short %} configuration file.
+If you don't want to create this file, you can permanently hide this startup message for the current repository by using the `/init suppress` slash command.
 
 For more information, see [AUTOTITLE](/copilot/how-tos/configure-custom-instructions/add-repository-instructions).
 
