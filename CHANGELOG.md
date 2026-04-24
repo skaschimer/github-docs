@@ -1,5 +1,13 @@
 # Docs changelog
 
+**23 April 2026**
+
+We added documentation for the new `gh skill` command (public preview), which you can use to discover, install, update, and publish agent skills directly from GitHub CLI.
+
+See [Adding agent skills for GitHub Copilot](https://docs.github.com/en/copilot/how-tos/use-copilot-agents/cloud-agent/add-skills#managing-skills-with-github-cli).
+
+<hr>
+
 **21 April 2026**
 
 We reorganized the Copilot how-tos for GitHub.com into a new [Copilot on GitHub](https://docs.github.com/en/copilot/how-tos/copilot-on-github) category, structured around five task-based map topics that follow the way people actually use Copilot on GitHub:
