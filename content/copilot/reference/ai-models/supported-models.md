@@ -99,6 +99,12 @@ The following table shows which AI models are available in each {% data variable
 
 ## Model multipliers
 
+<!-- expires 2026-06-01 -->
+
+{% data reusables.copilot.ubb-announcement-cfi-cb-ce %}
+
+<!-- end expires 2026-06-01 -->
+
 > [!NOTE]
 > The multiplier for these models are subject to change.
 >
