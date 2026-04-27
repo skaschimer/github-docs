@@ -57,8 +57,6 @@ Anthropic models include a cache write cost in addition to cached input.
 | {{ entry.model }} | {{ entry.release_status }} | {{ entry.category }} | {{ entry.input }} | {{ entry.cached_input }} | {{ entry.cache_write }} | {{ entry.output }} |
 | {% endif %}{% endfor %} |
 
-[^4]: {% data variables.copilot.copilot_claude_opus_46_fast %} is billed at 6x standard {% data variables.copilot.copilot_claude_opus_46 %} rates.
-
 ### Google
 
 | Model | Release status | Category | Input | Cached input | Output |
