@@ -1094,7 +1094,6 @@ Skills are loaded from these locations in priority order (first found wins for d
 | Parent `.github/skills/` | Inherited | Monorepo parent directory support. |
 | `~/.copilot/skills/` | Personal | Personal skills for all projects. |
 | `~/.agents/skills/` | Personal | Agent skills shared across all projects. |
-| `~/.claude/skills/` | Personal | Claude-compatible personal location. |
 | Plugin directories | Plugin | Skills from installed plugins. |
 | `COPILOT_SKILLS_DIRS` | Custom | Additional directories (comma-separated). |
 | (bundled with CLI) | Built-in | Skills shipped with the CLI. Lowest priority—overridable by any other source. |
@@ -1135,7 +1134,7 @@ Custom agents are specialized AI agents defined in Markdown files. The filename 
 | Scope | Location |
 |-------|----------|
 | Project | `.github/agents/` or `.claude/agents/` |
-| User | `~/.copilot/agents/` or `~/.claude/agents/` |
+| User | `~/.copilot/agents/` |
 | Plugin | `<plugin>/agents/` |
 
 Project-level agents take precedence over user-level agents. Plugin agents have the lowest priority.
