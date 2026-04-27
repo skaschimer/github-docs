@@ -95,6 +95,8 @@ The following table shows which models are available in each client.
 
 The following table shows which AI models are available in each {% data variables.product.prodname_copilot_short %} plan. For more information about the plans, see [AUTOTITLE](/copilot/about-github-copilot/plans-for-github-copilot).
 
+{% data reusables.copilot.gpt-53-codex-student-model-picker-note %}
+
 {% data reusables.copilot.available-models-per-plan %}
 
 ## Model multipliers
