@@ -363,7 +363,7 @@ copilot --allow-tool='MyMCP'
 For detailed information about configuration file settings—including the full list of user settings, repository settings, local settings, and how they cascade—see [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-config-dir-reference#configuration-file-settings).
 
 > [!NOTE]
-> User settings were previously stored in `~/.copilot/config.json`. Existing settings in that location are automatically migrated to `~/.copilot/settings.json` on startup.
+> User settings were previously stored in `~/.copilot/config.json`. Existing user-editable settings in that location are automatically migrated to `~/.copilot/settings.json` on startup.
 
 ## Project initialization for {% data variables.product.prodname_copilot_short %}
 
