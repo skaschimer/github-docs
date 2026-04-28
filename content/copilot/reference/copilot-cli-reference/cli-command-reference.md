@@ -19,6 +19,7 @@ docsTeamMetrics:
 | Command                | Purpose                                            |
 |------------------------|----------------------------------------------------|
 | `copilot`              | Launch the interactive user interface.             |
+| `copilot completion SHELL` | Print a shell script for the chosen shell that can be used to enable tab completion for {% data variables.copilot.copilot_cli_short %}. Supported shells: `bash`, `zsh`, `fish`. See [Using `copilot completion`](#using-copilot-completion). |
 | `copilot help [TOPIC]` | Display help information. Help topics include: `config`, `commands`, `environment`, `logging`, `monitoring`, `permissions`, and `providers`. |
 | `copilot init`         | Initialize {% data variables.product.prodname_copilot_short %} custom instructions for this repository. |
 | `copilot login`        | Authenticate with {% data variables.product.prodname_copilot_short %} via the OAuth device flow. Accepts `--host HOST` to specify the {% data variables.product.github %} host URL (default: `https://github.com`). |
@@ -51,6 +52,38 @@ copilot login --host https://example.ghe.com
 
 # Use a fine-grained PAT via environment variable
 COPILOT_GITHUB_TOKEN=github_pat_... copilot
+```
+
+### Using `copilot completion`
+
+The command `copilot completion SHELL` outputs a script for the specified shell (bash, zsh, or fish).
+
+By sourcing this script (or writing it to your shell's completion directory) you can enable tab completion in your terminal for `copilot` subcommands, command options, and known value choices for command options.
+
+#### Usage examples
+
+Bash (current session only):
+
+```bash copy
+source <(copilot completion bash)
+```
+
+Bash (persistent, Linux):
+
+```bash copy
+copilot completion bash | sudo tee /etc/bash_completion.d/copilot
+```
+
+Zsh — write the output to a directory on your $fpath. Restart the shell after running this command:
+
+```shell copy
+copilot completion zsh > "${fpath[1]}/_copilot"
+```
+
+Fish:
+
+```shell copy
+copilot completion fish > ~/.config/fish/completions/copilot.fish
 ```
 
 ## Global shortcuts in the interactive interface
