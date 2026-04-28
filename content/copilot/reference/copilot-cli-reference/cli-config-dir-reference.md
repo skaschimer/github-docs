@@ -140,30 +140,20 @@ Contains lock files and state for IDE integrations (for example, when {% data va
 
 ## Changing the location of the configuration directory
 
-You can override the default `~/.copilot` location in two ways:
-
-- **Environment variable**: Set `COPILOT_HOME` to the path of the directory you want to use.
+To override the default `~/.copilot` location, set the `COPILOT_HOME` environment variable to the path of the directory you want to use.
 
   ```bash copy
   export COPILOT_HOME=/path/to/my/copilot-config
   ```
 
-- **Command-line option**: Use `--config-dir` when launching the CLI.
-
-  ```bash copy
-  copilot --config-dir /path/to/my/copilot-config
-  ```
-
-The `--config-dir` option takes precedence over `COPILOT_HOME`, which in turn takes precedence over the default `~/.copilot` location.
-
 ### Things to be aware of
 
-- `COPILOT_HOME` replaces the entire `~/.copilot` path. The value you set should be the complete path to the directory you want to use for the configuration files and subdirectories.
-- Changing the directory means your existing configuration, session history, installed plugins, and saved permissions will not be found in the new location. Copy or move the contents of `~/.copilot` to the new location if you want to preserve them.
-- The **cache directory** (used for marketplace caches, auto-update packages, and other ephemeral data) follows platform conventions and is not affected by `COPILOT_HOME`. It is located at:
-  - **macOS**: `~/Library/Caches/copilot`
-  - **Linux**: `$XDG_CACHE_HOME/copilot` or `~/.cache/copilot`
-  - **Windows**: `%LOCALAPPDATA%/copilot`
+* `COPILOT_HOME` replaces the entire `~/.copilot` path. The value you set should be the complete path to the directory you want to use for the configuration files and subdirectories.
+* Changing the directory means your existing configuration, session history, installed plugins, and saved permissions will not be found in the new location. Copy or move the contents of `~/.copilot` to the new location if you want to preserve them.
+* The **cache directory** (used for marketplace caches, auto-update packages, and other ephemeral data) follows platform conventions and is not affected by `COPILOT_HOME`. It is located at:
+  * **macOS**: `~/Library/Caches/copilot`
+  * **Linux**: `$XDG_CACHE_HOME/copilot` or `~/.cache/copilot`
+  * **Windows**: `%LOCALAPPDATA%/copilot`
 
   To override the cache directory separately, set `COPILOT_CACHE_HOME`.
 
