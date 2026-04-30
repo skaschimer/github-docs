@@ -113,8 +113,6 @@ The following table shows which AI models are available in each {% data variable
 > * {% data variables.copilot.copilot_claude_sonnet_46 %}
 > * {% data variables.copilot.copilot_gpt_54_mini %}
 
-{% data reusables.copilot.opus-47-promo-period %}
-
 {% data reusables.copilot.gpt-55-promo-period %}
 
 Each model has a premium request multiplier, based on its complexity and resource usage. If you are on a paid {% data variables.product.prodname_copilot_short %} plan, your premium request allowance is deducted according to this multiplier.
