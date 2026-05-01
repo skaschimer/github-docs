@@ -1118,7 +1118,7 @@
     "permissions": [
       {
         "category": "copilot",
-        "slug": "get-copilot-coding-agent-permissions-for-an-organization",
+        "slug": "get-copilot-cloud-agent-permissions-for-an-organization",
         "subcategory": "copilot-coding-agent-management",
         "verb": "get",
         "requestPath": "/orgs/{org}/copilot/coding-agent/permissions",
@@ -1127,7 +1127,7 @@
       },
       {
         "category": "copilot",
-        "slug": "set-copilot-coding-agent-permissions-for-an-organization",
+        "slug": "set-copilot-cloud-agent-permissions-for-an-organization",
         "subcategory": "copilot-coding-agent-management",
         "verb": "put",
         "requestPath": "/orgs/{org}/copilot/coding-agent/permissions",
@@ -1136,7 +1136,7 @@
       },
       {
         "category": "copilot",
-        "slug": "list-repositories-enabled-for-copilot-coding-agent-in-an-organization",
+        "slug": "list-repositories-enabled-for-copilot-cloud-agent-in-an-organization",
         "subcategory": "copilot-coding-agent-management",
         "verb": "get",
         "requestPath": "/orgs/{org}/copilot/coding-agent/permissions/repositories",
@@ -1145,7 +1145,7 @@
       },
       {
         "category": "copilot",
-        "slug": "set-selected-repositories-for-copilot-coding-agent-in-an-organization",
+        "slug": "set-selected-repositories-for-copilot-cloud-agent-in-an-organization",
         "subcategory": "copilot-coding-agent-management",
         "verb": "put",
         "requestPath": "/orgs/{org}/copilot/coding-agent/permissions/repositories",
@@ -1154,7 +1154,7 @@
       },
       {
         "category": "copilot",
-        "slug": "enable-a-repository-for-copilot-coding-agent-in-an-organization",
+        "slug": "enable-a-repository-for-copilot-cloud-agent-in-an-organization",
         "subcategory": "copilot-coding-agent-management",
         "verb": "put",
         "requestPath": "/orgs/{org}/copilot/coding-agent/permissions/repositories/{repository_id}",
@@ -1163,7 +1163,7 @@
       },
       {
         "category": "copilot",
-        "slug": "disable-a-repository-for-copilot-coding-agent-in-an-organization",
+        "slug": "disable-a-repository-for-copilot-cloud-agent-in-an-organization",
         "subcategory": "copilot-coding-agent-management",
         "verb": "delete",
         "requestPath": "/orgs/{org}/copilot/coding-agent/permissions/repositories/{repository_id}",
@@ -1482,6 +1482,42 @@
     "title": "GitHub Copilot Business",
     "displayTitle": "Organization permissions for \"GitHub Copilot Business\"",
     "permissions": [
+      {
+        "category": "copilot-spaces",
+        "slug": "list-collaborators-for-an-organization-copilot-space",
+        "subcategory": "collaborators",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/copilot-spaces/{space_number}/collaborators",
+        "additional-permissions": false,
+        "access": "read"
+      },
+      {
+        "category": "copilot-spaces",
+        "slug": "add-a-collaborator-to-an-organization-copilot-space",
+        "subcategory": "collaborators",
+        "verb": "post",
+        "requestPath": "/orgs/{org}/copilot-spaces/{space_number}/collaborators",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
+        "category": "copilot-spaces",
+        "slug": "set-a-collaborator-role-for-an-organization-copilot-space",
+        "subcategory": "collaborators",
+        "verb": "put",
+        "requestPath": "/orgs/{org}/copilot-spaces/{space_number}/collaborators/{actor_type}/{actor_identifier}",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
+        "category": "copilot-spaces",
+        "slug": "remove-a-collaborator-from-an-organization-copilot-space",
+        "subcategory": "collaborators",
+        "verb": "delete",
+        "requestPath": "/orgs/{org}/copilot-spaces/{space_number}/collaborators/{actor_type}/{actor_identifier}",
+        "additional-permissions": false,
+        "access": "write"
+      },
       {
         "category": "copilot",
         "slug": "get-copilot-seat-information-and-settings-for-an-organization",
