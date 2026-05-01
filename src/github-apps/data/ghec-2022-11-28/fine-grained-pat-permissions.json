@@ -1112,6 +1112,102 @@
       }
     ]
   },
+  "organization_copilot_spaces": {
+    "title": "Copilot Spaces",
+    "displayTitle": "Organization permissions for \"Copilot Spaces\"",
+    "permissions": [
+      {
+        "category": "copilot-spaces",
+        "slug": "list-organization-copilot-spaces",
+        "subcategory": "copilot-spaces",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/copilot-spaces",
+        "additional-permissions": false,
+        "access": "read"
+      },
+      {
+        "category": "copilot-spaces",
+        "slug": "create-an-organization-copilot-space",
+        "subcategory": "copilot-spaces",
+        "verb": "post",
+        "requestPath": "/orgs/{org}/copilot-spaces",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
+        "category": "copilot-spaces",
+        "slug": "get-an-organization-copilot-space",
+        "subcategory": "copilot-spaces",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/copilot-spaces/{space_number}",
+        "additional-permissions": false,
+        "access": "read"
+      },
+      {
+        "category": "copilot-spaces",
+        "slug": "set-an-organization-copilot-space",
+        "subcategory": "copilot-spaces",
+        "verb": "put",
+        "requestPath": "/orgs/{org}/copilot-spaces/{space_number}",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
+        "category": "copilot-spaces",
+        "slug": "delete-an-organization-copilot-space",
+        "subcategory": "copilot-spaces",
+        "verb": "delete",
+        "requestPath": "/orgs/{org}/copilot-spaces/{space_number}",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
+        "category": "copilot-spaces",
+        "slug": "list-resources-for-an-organization-copilot-space",
+        "subcategory": "resources",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/copilot-spaces/{space_number}/resources",
+        "additional-permissions": false,
+        "access": "read"
+      },
+      {
+        "category": "copilot-spaces",
+        "slug": "create-a-resource-for-an-organization-copilot-space",
+        "subcategory": "resources",
+        "verb": "post",
+        "requestPath": "/orgs/{org}/copilot-spaces/{space_number}/resources",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
+        "category": "copilot-spaces",
+        "slug": "get-a-resource-for-an-organization-copilot-space",
+        "subcategory": "resources",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/copilot-spaces/{space_number}/resources/{space_resource_id}",
+        "additional-permissions": false,
+        "access": "read"
+      },
+      {
+        "category": "copilot-spaces",
+        "slug": "set-a-resource-for-an-organization-copilot-space",
+        "subcategory": "resources",
+        "verb": "put",
+        "requestPath": "/orgs/{org}/copilot-spaces/{space_number}/resources/{space_resource_id}",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
+        "category": "copilot-spaces",
+        "slug": "delete-a-resource-from-an-organization-copilot-space",
+        "subcategory": "resources",
+        "verb": "delete",
+        "requestPath": "/orgs/{org}/copilot-spaces/{space_number}/resources/{space_resource_id}",
+        "additional-permissions": false,
+        "access": "write"
+      }
+    ]
+  },
   "organization_copilot_agent_settings": {
     "title": "Copilot agent settings",
     "displayTitle": "Organization permissions for \"Copilot agent settings\"",
