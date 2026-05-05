@@ -14,4 +14,7 @@ children:
   - /interpreting-secret-risk-assessment-results
   - /interpreting-code-security-risk-assessment-results
   - /organizing-remediation-efforts-for-leaked-secrets
+  - /protect-against-threats
+  - /preparing-for-security-incidents
+  - /responding-to-security-incidents
 ---
