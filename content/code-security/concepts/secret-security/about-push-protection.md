@@ -28,7 +28,6 @@ Push protection blocks secrets detected in:
 * Commits made in the {% data variables.product.prodname_dotcom %} UI{% ifversion push-protection-delegated-bypass-file-upload-support %}
 * File uploads to a repository on {% data variables.product.github %}{% endif %}{% ifversion secret-scanning-push-protection-content-endpoints %}
 * Requests to the REST API{% endif %}
-* Interactions with the {% data variables.product.github %} MCP server (public repositories only)
 
 When push protection detects a potential secret during a push attempt, it will block the push and provide a detailed message explaining the reason for the block. You will need to review the code in question, remove any sensitive information, and reattempt the push.
 
